@@ -1,0 +1,15 @@
+digraph G {
+  // Node attributes
+  a [label="a", color=red, style=filled];
+  b [label="b", color=blue, style=filled];
+  c [label="c", color=green, style=filled];
+  d [label="d", color=yellow, style=filled];
+  e [label="e", color=orange, style=filled];
+
+  // Edge attributes
+  a -> c [label="Step 1", color=purple];
+  a -> d [label="Step 2", color=brown];
+  b -> d [label="Step 3", color=orange];
+  d -> e [label="Step 4", color=black];
+}
+
