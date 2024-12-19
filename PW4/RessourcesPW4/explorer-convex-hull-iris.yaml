@@ -1,0 +1,28 @@
+- !strategy.core.LimitFilter
+  arguments:
+    - !strategy.numerical.basic.Normal
+      arguments:
+        - !characteristic.numerical.Number
+          characteristic: !characteristic.core.Key
+            name: "sepal length"
+        - !characteristic.numerical.Number
+          characteristic: !characteristic.core.Key
+            name: "sepal width"
+      params:
+        coefficient: 1
+    - !strategy.numerical.basic.Normal
+      arguments:
+        - !characteristic.numerical.Number
+          characteristic: !characteristic.core.Key
+            name: "petal length"
+        - !characteristic.numerical.Number
+          characteristic: !characteristic.core.Key
+            name: "petal width"
+      params:
+        coefficient: 1
+  params:
+    measure: !measure.core.Cardinality
+    limit: 122
+- !strategy.categorized.basic.Category
+  - !characteristic.core.Key
+    name: "class"

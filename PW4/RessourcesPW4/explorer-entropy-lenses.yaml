@@ -1,0 +1,79 @@
+# See https://archive.ics.uci.edu/ml/datasets/Lenses
+
+- !strategy.core.SelectionFilter
+  arguments:
+  - !strategy.logical.basic.Boolean
+    - !predicate.core.Equal
+      arguments:
+      - !characteristic.core.Key
+        name: "age"
+      params:
+        data: "young"
+  - !strategy.logical.basic.Boolean
+    - !predicate.core.Equal
+      arguments:
+      - !characteristic.core.Key
+        name: "age"
+      params:
+        data: "pre-presbyopic"
+  - !strategy.logical.basic.Boolean
+    - !predicate.core.Equal
+      arguments:
+      - !characteristic.core.Key
+        name: "age"
+      params:
+        data: "presbyopic"
+  - !strategy.logical.basic.Boolean
+    - !predicate.core.Equal
+      arguments:
+      - !characteristic.core.Key
+        name: "prescription"
+      params:
+        data: "myope"
+  - !strategy.logical.basic.Boolean
+    - !predicate.core.Equal
+      arguments:
+      - !characteristic.core.Key
+        name: "prescription"
+      params:
+        data: "hypermetrope"
+  - !strategy.logical.basic.Boolean
+    - !predicate.core.Equal
+      arguments:
+      - !characteristic.core.Key
+        name: "astigmatic"
+      params:
+        data: "yes"
+  - !strategy.logical.basic.Boolean
+    - !predicate.core.Equal
+      arguments:
+      - !characteristic.core.Key
+        name: "astigmatic"
+      params:
+        data: "no"
+  - !strategy.logical.basic.Boolean
+    - !predicate.core.Equal
+      arguments:
+      - !characteristic.core.Key
+        name: "tear"
+      params:
+        data: "normal"
+  - !strategy.logical.basic.Boolean
+    - !predicate.core.Equal
+      arguments:
+      - !characteristic.core.Key
+        name: "tear"
+      params:
+        data: "reduced"
+  params:
+    measure: !measure.entropy.Entropy
+      characteristic: !characteristic.core.Key
+        name: "class"
+    maximize: false
+    strict: true
+    keep: 2
+- !strategy.core.Absurd
+  - !description.categorized.Category
+    - !characteristic.core.Key
+      name: "class"
+

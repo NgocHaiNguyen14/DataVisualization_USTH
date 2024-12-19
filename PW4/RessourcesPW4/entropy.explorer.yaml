@@ -1,0 +1,118 @@
+# See https://archive.ics.uci.edu/ml/datasets/Lenses
+
+characteristics:
+  - &id001 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: !characteristic.core.Key
+        name: "age"
+      data: "young"
+  - &id002 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: !characteristic.core.Key
+        name: "age"
+      data: "pre-presbyopic"
+  - &id003 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: !characteristic.core.Key
+        name: "age"
+      data: "presbyopic"
+  - &id004 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: !characteristic.core.Key
+        name: "spectacle prescription"
+      data: "myope"
+  - &id005 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: !characteristic.core.Key
+        name: "spectacle prescription"
+      data: "hypermetrope"
+  - &id006 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: !characteristic.core.Key
+        name: "astigmatic"
+      data: "yes"
+  - &id007 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: !characteristic.core.Key
+        name: "astigmatic"
+      data: "no"
+  - &id008 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: !characteristic.core.Key
+        name: "tear production rate"
+      data: "normal"
+  - &id009 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: !characteristic.core.Key
+        name: "tear production rate"
+      data: "reduced"
+  - &id010 !characteristic.core.Key
+      name: "class"
+  - &id011 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: *id010
+      data: "no contact lenses"
+  - &id012 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: *id010
+      data: "soft contact lenses"
+  - &id013 !characteristic.logical.Bool
+    - !predicate.core.Equal
+      characteristic: *id010
+      data: "hard contact lenses"
+
+descriptions:
+  - !description.logical.classic.Boolean
+    - *id001
+  - !description.logical.classic.Boolean
+    - *id002
+  - !description.logical.classic.Boolean
+    - *id003
+  - !description.logical.classic.Boolean
+    - *id004
+  - !description.logical.classic.Boolean
+    - *id005
+  - !description.logical.classic.Boolean
+    - *id006
+  - !description.logical.classic.Boolean
+    - *id007
+  - !description.logical.classic.Boolean
+    - *id008
+  - !description.logical.classic.Boolean
+    - *id009
+  - !description.logical.classic.Boolean
+    - *id011
+  - !description.logical.classic.Boolean
+    - *id012
+  - !description.logical.classic.Boolean
+    - *id013
+
+strategies:
+  - !strategy.core.SelectionFilter
+    arguments:
+    - !strategy.logical.classic.basic.Boolean
+      - *id001
+    - !strategy.logical.classic.basic.Boolean
+      - *id002
+    - !strategy.logical.classic.basic.Boolean
+      - *id003
+    - !strategy.logical.classic.basic.Boolean
+      - *id004
+    - !strategy.logical.classic.basic.Boolean
+      - *id005
+    - !strategy.logical.classic.basic.Boolean
+      - *id006
+    - !strategy.logical.classic.basic.Boolean
+      - *id007
+    - !strategy.logical.classic.basic.Boolean
+      - *id008
+    - !strategy.logical.classic.basic.Boolean
+      - *id009
+    params:
+      measure: !measure.entropy.Entropy
+        category: !characteristic.categorized.Category
+          characteristic: *id010
+      maximize: false
+      strict: true
+      keep: 2
+

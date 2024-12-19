@@ -1,6 +1,7 @@
 # Ignore the DV_venv folder
 DV_venv/
 PW2/Ressources/
+PW4/Ressources/
 # Ignore specific files in the PW1 directory
 PW1/exercise1.png
 PW1/exercise2.png
