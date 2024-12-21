@@ -1,2 +1,2 @@
-# DataVirtualization_USTH
+# DataVisualization_USTH
 Master subject
